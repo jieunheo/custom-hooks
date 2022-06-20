@@ -6,7 +6,7 @@ export const useConfirm = (message = "", onConfirm, onCancel) => {
     return;
   }
 
-  const confitmAction = () => {
+  const confirmAction = () => {
     if (confirm(message)) {
       onConfirm();
     } else {
@@ -14,5 +14,5 @@ export const useConfirm = (message = "", onConfirm, onCancel) => {
     }
   };
 
-  return confitmAction;
+  return confirmAction;
 };
