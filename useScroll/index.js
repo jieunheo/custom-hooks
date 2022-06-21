@@ -1,23 +1,14 @@
-import { useState, useEffect } from "react";
 import { useScroll } from "./useScroll";
 
-const useScroll = () => {
-  const [stats, setState] = useState({
-    x: 0,
-    y: 0
-  });
-
-  const getY = () => {
-    setState({
-      x: window.scrollX,
-      y: window.scrollY
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", getY);
-    return () => window.removeEventListener("scroll", getY);
-  }, []);
-
-  return stats;
+const App = () => {
+  const { y } = useScroll();
+  return (
+    <div className="App" style={{ height: "1000vh" }}>
+      <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>
+        Hello
+      </h1>
+    </div>
+  );
 };
+
+export default App;
